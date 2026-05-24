@@ -2,155 +2,189 @@
 
 ## Scope
 
-Use this reference when the thesis is based on a real software, website, platform, management system, database project, or other implementation-heavy graduation project.
+Use this reference when the thesis is based on a real software system, website, learning platform, management system, database application, data-analysis project, or similar engineering implementation.
 
-Do not use these defaults rigidly for theoretical, experimental, or purely literature-review theses. In those cases, keep the school template rules but relax the software-specific chapter and screenshot expectations.
+For theoretical or literature-review theses, keep the CUMT template rules but relax the software-specific screenshot, database, API, and test-case expectations.
 
 ## Minimum Useful Inputs
 
-Prioritize these inputs when available:
+Prioritize these inputs:
 
-1. school template
-2. task book or proposal
-3. sample thesis
-4. thesis title
-5. target word count or page target
-6. project repo
-7. README and project docs
-8. database schema, API docs, test notes, screenshots, or deployment notes
+1. school template, task book, proposal, or advisor notes
+2. sample thesis or department formatting example
+3. thesis title and expected page/word target
+4. project source code and commit/change notes
+5. database schema, migrations, seed data, or table screenshots
+6. API routes, service-layer code, frontend pages, and route configuration
+7. real screenshots, diagrams, test notes, logs, and exported charts
+8. verified references and handbook requirements for reference count
 
-If the user cannot provide all of them, continue with the strongest available set and state the missing pieces as assumptions.
-
-## Intake Output
-
-Before drafting long sections, summarize:
-
-- which files and inputs are being used
-- which sources are missing
-- the proposed chapter outline
-- target word count by chapter
-- style or structure conflicts
-- the planned working file name
-
-If the user later adds a new template, sample, or task book, refresh this summary before continuing.
+If inputs are incomplete, continue with the strongest available evidence and keep a clear missing-material list.
 
 ## Fact Base
 
-Build a fixed project fact base before expanding prose. Capture at least:
+Before drafting or revising thesis text, build a fact base with these fields:
 
-- project objective
-- target users or roles
-- core modules
-- main workflows
-- major tables or entities
-- key rules and constraints
-- technology stack
-- implemented features
-- known limitations
-- available evidence such as screenshots, logs, tests, or demo pages
+- project objective and application scenario
+- target users and roles
+- implemented modules and pages
+- backend endpoints and service responsibilities
+- database tables, key fields, and relationships
+- data flow from user operation to persistence and analysis
+- algorithms, rules, formulas, or model comparisons
+- test environment and test cases
+- screenshots, generated diagrams, and chart sources
+- known limitations and prototype boundaries
 
-Use this fact base as the source of truth for later chapter writing.
+Use this fact base as the source of truth for every chapter. When the project changes, update the fact base first, then sync only the affected thesis sections.
+
+## Evidence Ledger
+
+For each important claim, keep a simple ledger:
+
+- Claim: what the thesis says
+- Evidence: code file, table, screenshot, test record, or reference
+- Thesis location: chapter/table/figure/paragraph
+- Status: verified, partially verified, needs user material, or remove
+
+This prevents the thesis from drifting into unsupported claims.
 
 ## Recommended Chapter Rhythm for Software Theses
 
-### Chapter 1
+### Chapter 1: Introduction
 
-- background
-- research or project significance
-- current status or related work if needed
-- thesis structure
+Ground the background in the course or application problem. Avoid generic "digital education is important" openings unless the paragraph quickly connects to the actual project.
 
-### Chapter 2
+### Chapter 2: Related Technology and Theory
 
-- requirements analysis
-- feasibility
-- development environment
-- key supporting technologies
+Do not write pure textbook summaries. Connect each technology or theory to the implementation:
 
-### Chapter 3
+- Vue, Vite, Element Plus, ECharts, CodeMirror: frontend pages, forms, charts, SQL editor, or visualization
+- FastAPI, SQLAlchemy, MySQL: endpoint routing, service layer, ORM tables, persistence
+- Q matrix, knowledge tracing, cognitive diagnosis, recommendation: the actual tables, fields, or data flow used
+- DINA/IRT/model comparisons: baseline or comparison roles, not exaggerated production claims
 
-- overall architecture
-- functional module breakdown
-- role design or permission design
-- key business flows
-- database design
+### Chapter 3: Requirements and Overall Design
 
-### Chapter 4
+Use functional tables, role paths, business flows, architecture diagrams, and database design. For database projects, include:
 
-- make this the longest or near-longest chapter
-- organize by major module
-- for each major module, prefer:
-  - module purpose
-  - business flow or interaction logic
-  - brief code or SQL evidence
-  - real screenshot
+- E-R diagram or equivalent entity relationship view
+- core database table description table
+- mapping tables such as question-knowledge relations when they affect algorithms
 
-### Chapter 5
+### Chapter 4: Detailed Design and Implementation
 
-- testing environment
-- test cases
-- execution results
-- result analysis
+Usually this should be the most concrete chapter. For each major module:
 
-### Chapter 6
+- module purpose
+- page/component responsibilities
+- backend route/service/data-table relationship
+- key interaction flow
+- real screenshot or diagram
+- short code, SQL, pseudocode, or formula only when it explains the mechanism
 
-- conclusion
-- limitations
-- future work
+Avoid long code screenshots. Use pseudocode, formulas, or a compact table if code would damage layout.
 
-## Diagram, Screenshot, and Code Expectations
+### Chapter 5: Testing and Result Analysis
 
-For software or web-system theses, the following usually provide the strongest evidence:
+Write what was actually verified:
+
+- functional tests
+- data-link tests from UI operation to database record to analysis result
+- model comparison or algorithm checks
+- abnormal-data handling if implemented
+- performance or compatibility tests only when real test evidence exists
+
+For prototype systems, say "supports prototype verification" rather than "proves teaching effectiveness".
+
+### Chapter 6: Conclusion and Future Work
+
+Summarize completed work, verified data links, and real limitations. Future work should be concrete:
+
+- expand the question bank and real answer data
+- improve Q-matrix annotation quality
+- refine SQL error-type analysis
+- improve teacher intervention suggestions
+- add quality review for AI-assisted generated questions
+- validate the system in longer real classroom use
+
+## Syncing New Project Changes Into the Thesis
+
+When the user reports new features or changed files:
+
+1. Inspect the mentioned code files and routes.
+2. Identify which thesis chapters are affected.
+3. Update module tables, requirements, implementation text, screenshots, captions, and tests.
+4. If the feature adds a new page, add or replace a screenshot only when the user provides a clear image or the app can be run and captured.
+5. Add a test case for the new feature if it is user-facing.
+6. Update conclusion only if the change affects completed work.
+7. Do not inflate the feature beyond what the code implements.
+
+## Figures and Diagrams
+
+Strong software-thesis evidence often includes:
 
 - system architecture diagram
-- module structure diagram
-- one or more key process diagrams
-- E-R diagram or equivalent data-model view
-- data tables where needed
-- test-case tables
-- real screenshots from major modules
-- short code or SQL fragments that explain business rules
+- core business flow
+- student/user workflow
+- teacher/admin intervention workflow
+- E-R diagram
+- core database table description
+- Q matrix or mapping-table illustration
+- profile/diagnosis/recommendation process diagram
+- model comparison chart
+- real screenshots of major pages
 
-Keep large code listings out of the main body. Put them in the appendix if needed.
+Prefer clean white-background diagrams with consistent typography. Diagram names should be short and stable, such as "系统总体架构", "数据库实体关系", "能力分析", and "教师干预流程".
 
-If the database design is large, split the E-R presentation into:
+## Tables
 
-1. overall E-R view
-2. one or more core-domain E-R views
+Useful table types:
 
-## Reference Workflow
+- functional module division
+- core database table description
+- field mapping table for key relationships
+- algorithm variable explanation
+- test environment
+- functional test cases
+- data-link and model experiment test cases
+- reference candidate tracking when references are still being collected
 
-Use only real and relevant references.
+Use tables to reduce repetitive prose. Keep captions short and place them according to the template.
 
-Recommended sequence:
+## Data, Experiments, and Charts
 
-1. build a candidate pool
-2. remove anything unverified
-3. keep only sources that support the actual topic
-4. format the final list consistently
-5. check that the thesis body does not cite sources that are missing from the final list
+- Use real test data, provided demo data, or explicitly labeled prototype data.
+- Do not claim demo data is large-scale classroom evidence.
+- If generated data is used only to test UI or pipeline behavior, label it as simulated or demonstration data.
+- Use charts to explain system behavior or algorithm comparison, not to create unsupported effectiveness claims.
+- When sample size or response matrix density is weak, say so plainly.
 
-Prefer recent sources unless the user or topic clearly requires older classics.
+## Writing Style
 
-## Writing Guardrails
+Aim for a formal but natural undergraduate thesis style:
 
-- Prefer concrete facts over empty praise.
-- Do not invent modules, roles, tables, or test results that are not supported by code or project materials.
-- Keep terminology consistent across chapters.
-- Reuse real names from the project when they are suitable for an academic thesis.
-- Avoid obvious AI filler such as repeated claims of "important significance", "good effect", or "high practical value" without evidence.
+- Prefer specific data paths over empty evaluation language.
+- Replace "the platform forms a complete closed loop" with the actual path, such as answer record -> knowledge mapping -> mastery snapshot -> student feedback and teacher analysis.
+- Keep repeated terms consistent, but avoid starting many consecutive sentences with "the system", "the platform", or "this thesis".
+- Reduce repeated chapter summaries that say the same thing as the chapter opening.
+- Make limitations concrete and believable.
+
+Improving clarity and reducing template-like wording is allowed. Do not rewrite with the purpose of evading detection or hiding authorship.
 
 ## Final Review Checklist
 
 Before delivery, verify:
 
-- the outline matches the confirmed plan
-- the implementation chapter is substantial enough
-- major modules in the implementation chapter have evidence
-- screenshots are real and correctly titled
-- diagram references match the actual diagrams
-- chapter word counts are not wildly unbalanced
-- placeholders are removed
-- references are consistent and real
-- appendix material is separated from the main body
-- the final content still fits the CUMT template order
+- original file is preserved and the output file has a clear new name
+- headings and numbering still match the intended outline
+- Chinese and English abstracts are consistent
+- contents pages update correctly if they are field-based
+- figure/table/equation numbering is continuous
+- body references appear before major figures and tables
+- screenshots are legible and not stacked without explanation
+- formulas are not garbled
+- references are real, formatted consistently, and cited in the body
+- no placeholder text remains
+- no unsupported function, data, experiment, or result has been added
+- WPS/Word can open the file and exported PDF pagination looks reasonable

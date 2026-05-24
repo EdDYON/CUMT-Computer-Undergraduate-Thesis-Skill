@@ -1,138 +1,124 @@
 ---
 name: cumt-thesis-writing
-description: Use when drafting, revising, or formatting a China University of Mining and Technology (中国矿业大学) undergraduate graduation thesis / 毕业设计（论文）, especially when the user wants to write from a real software or system project, combine project code with 开题报告/任务书/往届样文, and then fit the result into the saved school template for cover pages, declarations, abstracts, contents, main chapters, references, translation section, and appendices.
+description: Use when analyzing, organizing, revising, or formatting a China University of Mining and Technology (中国矿业大学) computer-related undergraduate graduation design thesis / 本科毕业设计（论文） from real project materials, especially for template-first layout, project fact extraction, figure/table/equation/reference checks, WPS/Word docx handling, and academic-integrity-safe thesis support.
 ---
 
-# CUMT Thesis Writing
+# CUMT Computer Undergraduate Thesis
+
+## Boundary First
+
+This skill supports technical analysis, material organization, structure checking, conservative revision, and template layout for CUMT computer-related undergraduate graduation theses.
+
+Do **not** use it as a ghostwriting, fabrication, plagiarism, paper-polishing, or academic-review-evasion tool. The final thesis content, claims, experiments, screenshots, references, and conclusions must be independently understood and verified by the student under advisor and school requirements.
+
+When the user asks for a full thesis draft, first ground the work in real inputs. If a claim, function, dataset, screenshot, reference, or experiment cannot be verified from provided materials or project files, mark it as missing and ask for evidence instead of inventing it.
 
 ## Quick Start
 
-1. Gather as many of these as possible before writing: school template, task book or proposal, sample thesis, cover-page fields, word-count target, and project code or project documents.
-2. Copy `assets/cumt-thesis-template.doc` to a working location before editing. Never edit the asset in place.
-3. Preserve the existing styles, page breaks, and institutional forms in the copied template.
-4. Read [references/template-spec.md](references/template-spec.md) for the school-specific section order and formatting notes.
-5. Read [references/project-first-workflow.md](references/project-first-workflow.md) when the thesis is based on a real software, website, system, database, or engineering project.
-6. If the user only has WPS, keep the layout edits conservative and use the template as-is; if Word becomes available later, use it for final pagination and field checks.
+1. Work from a copied template or copied thesis file. Never edit `assets/cumt-thesis-template.doc` in place.
+2. Gather the highest-value inputs: school template, task book, proposal, sample thesis, thesis title, project code, database schema, screenshots, test notes, references, and advisor-specific requirements.
+3. Read [references/template-spec.md](references/template-spec.md) when section order, caption rules, page numbering, bilingual contents, or CUMT template layout matter.
+4. Read [references/project-first-workflow.md](references/project-first-workflow.md) when the thesis is based on a real software system, website, platform, database project, or engineering implementation.
+5. Freeze a project fact base before drafting or revising. Use source code, database tables, screenshots, logs, and tests as evidence.
+6. For WPS-only environments, keep formatting conservative: reuse existing styles, avoid aggressive restyling, update fields/contents through WPS when possible, and verify by exported PDF or rendered pages.
+7. Report what was changed, what was only checked, what still needs human confirmation, and which claims lack evidence.
 
 ## Source Priority
 
 Resolve conflicts in this order:
 
-1. School template
-2. Task book / proposal / formal school requirements
-3. User's explicit request
-4. Sample thesis
-5. Project source code and database schema
-6. README
-7. Old deployment notes, demo copy, or legacy descriptions
+1. Formal school handbook, task book, advisor instruction, or live template requirement
+2. The actual school template file being edited
+3. User's explicit request for this document
+4. Sample thesis structure and style
+5. Real project source code, database schema, API routes, tests, screenshots, and logs
+6. README, deployment notes, demo copy, or older design notes
 
-Treat old introductions, promotional copy, and stale documentation as low-confidence sources unless the user explicitly asks to reuse them.
+Treat promotional copy, stale README descriptions, and unsupported "future" features as low-confidence. Do not write them as completed work unless the project files prove they exist.
 
 ## Working Modes
 
-### Template-First Formatting
+### Project Evidence Mapping
 
-- Use this when the user already has most of the thesis text and mainly needs it placed into the China University of Mining and Technology template.
-- Preserve the template's structure, declarations, bilingual abstract pages, bilingual contents pages, translation section, and appendix placement.
+Use this before major writing or revision. Extract:
 
-### Project-First Drafting
+- thesis title and framing
+- real user roles
+- implemented modules
+- frontend pages and backend endpoints
+- database entities and key fields
+- business flows
+- algorithms, formulas, or rules actually used
+- screenshots and diagram needs
+- test evidence and known limitations
 
-- Use this when the user has a real project repo or project documents and wants to generate a thesis draft from those materials.
-- Freeze project facts first, then map those facts into a thesis outline, then place the result into the school template.
+Keep a separate "needs user evidence" list for missing screenshots, references, data sources, and advisor-only requirements.
 
-### Final Cleanup
+### Conservative Draft Support
 
-- Use this when the draft already exists and the remaining work is checking headings, figure and table captions, references, page order, and placeholder cleanup.
+Use only after the fact base is stable. Prefer grounded paragraphs, outline suggestions, table/figure descriptions, and revision guidance over unsupported full-body generation.
 
-## Workflow
+Write in a natural undergraduate thesis style: formal, specific, and plain. Reduce empty phrases such as "complete closed loop", "provide strong support", "significant improvement", and "important practical value" unless the text explains the concrete data path or test result behind the claim.
 
-### 1. Intake Before Writing
+### Template-First Layout
 
-- On the first thesis-writing request, prefer collecting missing materials before writing the full main body.
-- Ask for the highest-value missing items first: template or sample thesis, task book or proposal, title, word-count target, and project repo or project docs.
-- If the user explicitly says there are no more materials, continue with the available inputs and state the assumptions.
-- Accept local file paths directly.
+Use this when the user already has a draft and needs it placed into the CUMT template. Preserve cover pages, declarations, review forms, abstract pages, contents pages, section breaks, headers/footers, page numbering, and institutional styles.
 
-### 2. Freeze Project Facts
+Prefer in-place replacement and style reuse over rebuilding the document.
 
-When the thesis is based on a real project, build a stable fact base before expanding prose. Capture at least:
+### Feature Sync
 
-- thesis title and target framing
-- problem domain and project objective
-- user roles
-- core modules
-- key business flows
-- key entities or tables
-- technology stack
-- implemented features versus planned features
-- testing evidence, screenshots, and deployable pages if available
+Use this when project code changes after the thesis draft already exists. Compare the changed files with the thesis, then update only the affected places:
 
-Later chapters should expand from this fact base instead of re-inventing details chapter by chapter.
+- requirements and module tables
+- implementation descriptions
+- screenshots and captions
+- database table descriptions
+- test cases
+- conclusion or limitation statements
 
-### 3. Analyze Template and Samples
+Do not rewrite unrelated chapters.
 
-- If the user provides a sample thesis or school template, analyze structure, word rhythm, heading depth, abstract style, keyword style, figure captions, table captions, and reference formatting before drafting the main body.
-- If the recovered notes and the live template disagree, trust the live template asset.
-- If a new sample thesis or new task book appears midstream, re-check the outline before continuing.
+### Final Format Audit
 
-### 4. Confirm Outline and Word Budget
+Use this near submission. Focus on format, numbering, layout, citations, and conservative language cleanup:
 
-Before writing large sections, prepare a concise design package that includes:
+- figures, tables, algorithms, equations, captions, and body references
+- heading hierarchy and numbering
+- TOC and English contents
+- page numbering, section breaks, and blank pages
+- GB/T 7714 reference consistency
+- placeholder text, unsupported claims, and over-polished template language
 
-- the input materials being used
-- the proposed chapter outline
-- target word count by chapter
-- style notes and conflict items
-- file naming plan
+## Document Editing Rules
 
-For software or system theses, the main body usually works best when `系统详细设计与实现` or the equivalent implementation chapter is the longest chapter.
+- For `.docx`, prefer `python-docx` for structured edits and WPS/Word COM only when fields, contents, pagination, export, or page numbering require the word processor.
+- Always keep the original thesis file. Write a clearly named working copy such as `_修订版`, `_格式规范版`, or `_功能更新版`.
+- After meaningful edits, verify that the document opens, headings still exist, image/table counts are reasonable, references remain readable, and exported PDF pagination is not obviously broken.
+- If WPS cannot open a file, check for file locks or open WPS instances before assuming the docx is damaged.
+- Do not leave temporary placeholder text such as "待补充", "这里插图", "TODO", or tool notes in the final thesis.
 
-### 5. Draft by Chapter
+## Figures, Tables, Equations, and References
 
-- Stay close to the word budget instead of inflating the thesis.
-- Prefer project facts and concrete implementation details over empty evaluation language.
-- Keep the tone similar to an undergraduate thesis sample, but avoid obvious template phrases and generic praise.
-- Reuse the user's real module names, table names, business rules, and screen names where appropriate.
+- Figures need clear body references before placement. Captions go below figures and should be short, such as `图4-7 能力分析`; add the matching English caption when the template/sample uses bilingual captions.
+- Avoid pages that contain only stacked images. If multiple screenshots must appear consecutively, add concise analysis below or between them.
+- Use high-resolution real screenshots. If screenshots are blurry, ask the user for better captures or regenerate diagrams in a clean white-paper style.
+- Tables need titles above the table. Use three-line table style when possible. Database design often benefits from both an E-R diagram and a core table description table.
+- Equations should be inserted as real Word equations or stable equation objects when possible. Avoid plain-text formulas with broken underscores or ambiguous symbols. Number important formulas consistently.
+- References must be real and relevant. Do not fabricate author names, titles, journals, years, DOI, URLs, volume/issue, or pages. If reference information is missing, mark it as missing.
+- Check requirements such as total reference count and foreign-language reference count against the student's handbook or advisor instruction.
 
-For software or system theses, use the patterns in [references/project-first-workflow.md](references/project-first-workflow.md):
+## Academic Integrity Guardrails
 
-- design chapter: architecture, module structure, key flows, database design
-- implementation chapter: module purpose, key logic, screenshot, brief code or SQL evidence
-- testing chapter: environment, cases, results, analysis
-
-### 6. Keep Figures, Tables, Screenshots, and Code Grounded
-
-- Do not add diagrams just to fill space; make them correspond to real modules or real workflows.
-- Database design should include an E-R view when the project actually has a meaningful data model.
-- If a full E-R diagram is too crowded, split it into a full overview and one or more core-domain diagrams.
-- For software or web projects, each major module in the implementation chapter should usually include at least one real screenshot and one brief implementation snippet or SQL fragment.
-- Put large code blocks into the appendix instead of the main body.
-
-### 7. Fit the Draft into the CUMT Template
-
-- Replace sample content in place instead of rebuilding the whole document from scratch.
-- Update title, author, advisor, college, major, student number, and date directly inside the copied template.
-- Keep the mandatory section order from [references/template-spec.md](references/template-spec.md).
-- Maintain bilingual elements where the template uses them: title or labels, abstract pages, keywords, contents pages, and caption pairs.
-- Keep the table of contents limited to level-2 headings unless the user asks for a deeper TOC.
-- Do not translate level-3 headings into English.
-
-### 8. Final Checks
-
-Before delivery, check at least:
-
-- mandatory sections are present and in the right order
-- the chapter structure matches the chosen outline
-- word count is near the target range
-- headings, figure captions, and table captions are consistent
-- references are real and relevant
-- screenshots and diagrams are not placeholders
-- appendix content is separated from main-body content
-- the copied working file, not the skill asset, is being edited
-- WPS pagination, contents fields, and page numbering still look reasonable
+- Never invent modules, data, screenshots, experiments, user counts, performance percentages, survey results, citations, or advisor feedback.
+- Do not convert demo data into "large-scale real teaching data".
+- Do not claim a prototype is a mature commercial system.
+- Do not state that a model is significantly better unless the available experiment supports that exact conclusion.
+- Do not optimize text for evading detection. It is acceptable to make writing clearer, more specific, and less template-like, but the goal must be accuracy and readability.
+- AI-assisted features inside the student's project must be described according to their real boundary. For example, AI-generated questions usually remain candidate questions requiring teacher review.
 
 ## Resources
 
-- Use `assets/cumt-thesis-template.doc` as the exact template to copy from.
-- Use [references/template-spec.md](references/template-spec.md) for the recovered section order and formatting notes.
-- Use [references/project-first-workflow.md](references/project-first-workflow.md) for project-driven drafting rules, software-thesis chapter patterns, evidence expectations, and final review checklists.
+- `assets/cumt-thesis-template.doc`: bundled CUMT writing template asset. Copy before use.
+- [references/template-spec.md](references/template-spec.md): CUMT template order and formatting notes.
+- [references/project-first-workflow.md](references/project-first-workflow.md): project-based thesis evidence workflow, chapter rhythm, and final audit checklist.
