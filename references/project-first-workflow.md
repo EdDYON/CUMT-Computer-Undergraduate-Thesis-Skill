@@ -172,6 +172,82 @@ Aim for a formal but natural undergraduate thesis style:
 
 Improving clarity and reducing template-like wording is allowed. Do not rewrite with the purpose of evading detection or hiding authorship.
 
+## Marked-Paragraph Naturalization Workflow
+
+Use this workflow when the user provides highlighted suspicious sections, an AI-detection report, or asks to reduce template-like expression.
+
+1. Treat marks as the scope boundary. If only the abstract and test chapter are marked, do not rewrite unrelated chapters.
+2. Extract each marked paragraph with its chapter and nearby heading.
+3. Classify the problem: empty evaluation, repeated summary, over-polished phrase, missing implementation detail, overclaim, or awkward translation.
+4. Revise conservatively while preserving technical nouns, references, model names, table names, field names, figure/table numbers, and conclusion direction.
+5. Keep the revised paragraph close to the original length, normally 80%-120%.
+6. Produce a diff-style explanation so the student can see what changed and manually accept or reject it.
+
+Useful replacements:
+
+- Replace "complete closed loop" with the concrete data path.
+- Replace "provides support" with the exact page, module, table, or test chain that is supported.
+- Replace "significantly improves" with the observed prototype result or remove it if unsupported.
+- Replace "has important significance" with the practical problem the implementation addresses.
+- Replace "the results show" with "in the prototype test, this step completed..." when evidence is limited.
+
+Do not insert personal stories, casual phrases, or deliberate grammar errors. The target style is plain undergraduate academic writing, not chatty rewriting.
+
+## Chapter-Specific Naturalization Patterns
+
+### Abstract and English Abstract
+
+Keep the abstract compact. A useful rhythm is problem -> implementation -> data/method link -> cautious test conclusion. Avoid repeating the same modules twice.
+
+- Do not add facts that are absent from the Chinese abstract when writing the English abstract.
+- Avoid polished templates such as "To address this problem", "This thesis proposes", and "The results show that" when they make the text sound generic.
+- Make prototype boundaries explicit: "under demo data", "prototype environment", or "main workflow can be completed".
+
+### Chapter 1: Introduction
+
+Keep the background close to the actual course/project scenario. For course or platform projects, mention concrete pain points such as feedback granularity, prerequisite relations, local weak points, practice records, or teacher review paths.
+
+Avoid a long "technology development is important" opening unless it quickly connects to the implemented system.
+
+### Chapter 2: Related Technology and Theory
+
+Do not write it as a generic textbook chapter. For each concept, connect it to the thesis implementation:
+
+- learning profile -> pass rate, coverage, mastery, confidence, evidence count, or equivalent fields
+- Q matrix -> question-knowledge mapping table or annotation workflow
+- recommendation -> mastery snapshot, weak-point list, item-knowledge relation, and candidate exercise selection
+- cognitive diagnosis / knowledge tracing -> what role it plays in the prototype and whether it is a default path or comparison baseline
+- frontend/backend frameworks -> the pages, components, routes, ORM models, or services they actually support
+
+### Chapter 4: Detailed Design and Implementation
+
+Prefer a chain like: page action -> frontend component -> backend endpoint/service -> database table -> returned result shown to user. This reads more like a real implementation record than a feature list.
+
+Mention implementation tradeoffs when they are real:
+
+- trial run versus official submit
+- generated candidate content requiring human review
+- model comparison shown for analysis but not used as the default recommendation path
+- limited data scale affecting algorithm confidence
+- screenshots or charts being prototype demonstrations rather than long-term usage evidence
+
+### Chapter 5: Testing and Result Analysis
+
+For each test subsection, include four pieces of information when available:
+
+- test object: what page, endpoint, table, function, or model is tested
+- test step: what operation was performed
+- observation: what record, page result, chart, or error behavior appeared
+- limitation: demo data, sample size, response matrix density, browser/WPS environment, or manual verification requirement
+
+Avoid project-acceptance phrases such as "the system runs stably", "the effectiveness is fully verified", or "teaching quality is improved" unless there is real evidence. For prototype work, say that the tested workflow completed under the given environment.
+
+### Conclusion and Future Work
+
+Separate completed functions from unverified effects. A good conclusion says what was implemented, what data link was tested, and what remains limited.
+
+Future work should stay concrete: expand real data, improve annotation quality, refine error analysis, add review workflow, compare models under denser response matrices, or conduct longer classroom validation.
+
 ## Final Review Checklist
 
 Before delivery, verify:

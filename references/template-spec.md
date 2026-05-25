@@ -100,6 +100,34 @@ Adjust chapter names to match the task book, sample thesis, or advisor instructi
 - Do not fabricate missing information. Mark unknown volume, issue, pages, DOI, or access date for human completion.
 - Verify the total number of references and foreign-language references against the student's handbook or advisor instruction.
 
+## Format-Detection Report Workflow
+
+Use this section when the user provides a format-check report, annotated `.docx`, exported inspection folder, or reviewer comments.
+
+1. First read the report and list issues by location, issue type, current problem, suggested change, automatic-fix safety, and whether human confirmation is needed.
+2. Fix only marked issues and issues directly caused by recent edits. Do not run a whole-document normalization pass unless the user explicitly asks for it.
+3. Preserve the original file and create a named copy such as `_格式标注精修版` or `_页码修正版`.
+4. After editing, provide an automatic modification list, human confirmation list, and priority rework list.
+
+Common report-driven fixes:
+
+- Figure comments: check caption position, caption style, numbering continuity, body reference before the figure, bilingual caption requirement, and whether the image is legible after printing.
+- Table comments: check title above table, three-line table style, numbering continuity, body reference, cross-page behavior, and spacing around the table.
+- Equation comments: rebuild garbled formulas with Word equation objects or stable equation formatting; keep formula numbers and variable explanations nearby.
+- Reference comments: correct type markers and obvious punctuation/spacing; only add URL, DOI, access date, volume, issue, or pages when the source is verifiable.
+- Heading comments: check hierarchy and numbering, but do not convert the whole thesis numbering system unless the report or handbook clearly requires it.
+- Layout comments: remove abnormal blank lines, adjust figure/table scale, and prevent isolated headings, but avoid moving large sections without visual verification.
+
+High-risk items usually need human or WPS/Word confirmation:
+
+- automatic contents, English contents, and cross-reference fields
+- page-number restart, Roman/Arabic numbering, and section breaks
+- header/footer fields and chapter-title fields
+- exact font, line spacing, and margins when the report references the student handbook
+- screenshots that may be unclear in printed output
+
+Be careful with headers and page numbers. Some Word/WPS field setups can display chapter text such as `1 绪论` near the page number area. If this appears, inspect header/footer fields before changing content paragraphs.
+
 ## WPS Practical Notes
 
 - Many students only have WPS. Keep layout edits conservative and avoid operations that depend on Microsoft Word-only behavior.
@@ -107,3 +135,4 @@ Adjust chapter names to match the task book, sample thesis, or advisor instructi
 - If WPS COM automation fails to open the file, check whether the document is already open or locked.
 - Export to PDF for page-level review when possible.
 - If no reliable renderer is available, perform structural checks with `python-docx` and clearly mark layout items that need manual review.
+- When automatic fields cannot be updated reliably, state that the user should open the file in WPS/Word, update all fields, and visually check contents, captions, cross-references, and page numbers.
